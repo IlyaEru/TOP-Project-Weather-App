@@ -1,0 +1,32 @@
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/***/ (() => {
+
+eval("const searchButton = document.querySelector('button');\nsearchButton.addEventListener('click', () => {\n\tconst passedCityName = document.querySelector('.city-name').value;\n\tconsole.log(passedCityName);\n\tWeatherAPiData(passedCityName);\n});\nasync function WeatherAPiData(cityName) {\n\ttry {\n\t\tconst url = 'api.openweathermap.org';\n\t\tconst response = await fetch(`https://${url}/data/2.5/forecast?q=${cityName}&APPID=9dbacf94042384bcf9011370349c98d3`);\n\t\tconst weatherData = await response.json();\n\t\tconsole.log(weatherData);\n\t\tconst tempNowKelvin = weatherData.list[0].main.temp;\n\t\tconst tempNowCelsius = Math.round((Number(tempNowKelvin) - 273.15) * 10) / 10;\n\n\t\tconst tempFellsNowKelvin = weatherData.list[0].main.feels_like;\n\t\tconst tempFellsNowCelsius = Math.round((Number(tempFellsNowKelvin) - 273.15) * 10) / 10;\n\n\t\tconst weatherDescriptionNow = weatherData.list[0].weather[0].description;\n\n\t\tconst cityNameAndCountry = weatherData.city.name + ', ' + weatherData.city.country;\n\n\t\tconst humidityNow = weatherData.list[0].main.humidity;\n\n\t\tconst windSpeedNowMeterPerSecond = weatherData.list[0].wind.speed;\n\t\tconst windSpeedNowKPH = Math.round((Number(windSpeedNowMeterPerSecond) * 3.6) * 10) / 10;\n\t\tconsole.log({ windSpeedNowKPH, humidityNow, cityNameAndCountry, tempNowCelsius, tempFellsNowCelsius, weatherDescriptionNow })\n\n\t\tconsole.log(weatherData.list[0].dt_txt.split(' ')[0]);\n\t\tconst sortedData = weatherData.list.reduce((total, next) => {\n\t\t\ttotal[next.dt_txt.split(' ')[0]] = total[next.dt_txt.split(' ')[0]] || [];\n\t\t\ttotal[next.dt_txt.split(' ')[0]].push(next);\n\t\t\treturn total;\n\t\t}, {})\n\t\tconsole.log(sortedData);\n\t\tfor (const day in sortedData) {\n\t\t\tsortedData[day].sort((a, b) => (a.main.temp - b.main.temp))\n\t\t}\n\n\n\t\tconsole.log(sortedData);\n\n\t} catch (error) {\n\t\tconsole.log(error);\n\t}\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvaW5kZXguanMuanMiLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBLENBQUM7QUFDRDtBQUNBO0FBQ0E7QUFDQSwwQ0FBMEMsSUFBSSx1QkFBdUIsU0FBUztBQUM5RTtBQUNBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBOztBQUVBOztBQUVBOztBQUVBOztBQUVBO0FBQ0E7QUFDQSxnQkFBZ0IsOEdBQThHOztBQUU5SDtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EsR0FBRyxJQUFJO0FBQ1A7QUFDQTtBQUNBO0FBQ0E7OztBQUdBOztBQUVBLEdBQUc7QUFDSDtBQUNBO0FBQ0EiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly93ZWF0aGVyLWFwcC8uL3NyYy9pbmRleC5qcz9iNjM1Il0sInNvdXJjZXNDb250ZW50IjpbImNvbnN0IHNlYXJjaEJ1dHRvbiA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJ2J1dHRvbicpO1xuc2VhcmNoQnV0dG9uLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgKCkgPT4ge1xuXHRjb25zdCBwYXNzZWRDaXR5TmFtZSA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJy5jaXR5LW5hbWUnKS52YWx1ZTtcblx0Y29uc29sZS5sb2cocGFzc2VkQ2l0eU5hbWUpO1xuXHRXZWF0aGVyQVBpRGF0YShwYXNzZWRDaXR5TmFtZSk7XG59KTtcbmFzeW5jIGZ1bmN0aW9uIFdlYXRoZXJBUGlEYXRhKGNpdHlOYW1lKSB7XG5cdHRyeSB7XG5cdFx0Y29uc3QgdXJsID0gJ2FwaS5vcGVud2VhdGhlcm1hcC5vcmcnO1xuXHRcdGNvbnN0IHJlc3BvbnNlID0gYXdhaXQgZmV0Y2goYGh0dHBzOi8vJHt1cmx9L2RhdGEvMi41L2ZvcmVjYXN0P3E9JHtjaXR5TmFtZX0mQVBQSUQ9OWRiYWNmOTQwNDIzODRiY2Y5MDExMzcwMzQ5Yzk4ZDNgKTtcblx0XHRjb25zdCB3ZWF0aGVyRGF0YSA9IGF3YWl0IHJlc3BvbnNlLmpzb24oKTtcblx0XHRjb25zb2xlLmxvZyh3ZWF0aGVyRGF0YSk7XG5cdFx0Y29uc3QgdGVtcE5vd0tlbHZpbiA9IHdlYXRoZXJEYXRhLmxpc3RbMF0ubWFpbi50ZW1wO1xuXHRcdGNvbnN0IHRlbXBOb3dDZWxzaXVzID0gTWF0aC5yb3VuZCgoTnVtYmVyKHRlbXBOb3dLZWx2aW4pIC0gMjczLjE1KSAqIDEwKSAvIDEwO1xuXG5cdFx0Y29uc3QgdGVtcEZlbGxzTm93S2VsdmluID0gd2VhdGhlckRhdGEubGlzdFswXS5tYWluLmZlZWxzX2xpa2U7XG5cdFx0Y29uc3QgdGVtcEZlbGxzTm93Q2Vsc2l1cyA9IE1hdGgucm91bmQoKE51bWJlcih0ZW1wRmVsbHNOb3dLZWx2aW4pIC0gMjczLjE1KSAqIDEwKSAvIDEwO1xuXG5cdFx0Y29uc3Qgd2VhdGhlckRlc2NyaXB0aW9uTm93ID0gd2VhdGhlckRhdGEubGlzdFswXS53ZWF0aGVyWzBdLmRlc2NyaXB0aW9uO1xuXG5cdFx0Y29uc3QgY2l0eU5hbWVBbmRDb3VudHJ5ID0gd2VhdGhlckRhdGEuY2l0eS5uYW1lICsgJywgJyArIHdlYXRoZXJEYXRhLmNpdHkuY291bnRyeTtcblxuXHRcdGNvbnN0IGh1bWlkaXR5Tm93ID0gd2VhdGhlckRhdGEubGlzdFswXS5tYWluLmh1bWlkaXR5O1xuXG5cdFx0Y29uc3Qgd2luZFNwZWVkTm93TWV0ZXJQZXJTZWNvbmQgPSB3ZWF0aGVyRGF0YS5saXN0WzBdLndpbmQuc3BlZWQ7XG5cdFx0Y29uc3Qgd2luZFNwZWVkTm93S1BIID0gTWF0aC5yb3VuZCgoTnVtYmVyKHdpbmRTcGVlZE5vd01ldGVyUGVyU2Vjb25kKSAqIDMuNikgKiAxMCkgLyAxMDtcblx0XHRjb25zb2xlLmxvZyh7IHdpbmRTcGVlZE5vd0tQSCwgaHVtaWRpdHlOb3csIGNpdHlOYW1lQW5kQ291bnRyeSwgdGVtcE5vd0NlbHNpdXMsIHRlbXBGZWxsc05vd0NlbHNpdXMsIHdlYXRoZXJEZXNjcmlwdGlvbk5vdyB9KVxuXG5cdFx0Y29uc29sZS5sb2cod2VhdGhlckRhdGEubGlzdFswXS5kdF90eHQuc3BsaXQoJyAnKVswXSk7XG5cdFx0Y29uc3Qgc29ydGVkRGF0YSA9IHdlYXRoZXJEYXRhLmxpc3QucmVkdWNlKCh0b3RhbCwgbmV4dCkgPT4ge1xuXHRcdFx0dG90YWxbbmV4dC5kdF90eHQuc3BsaXQoJyAnKVswXV0gPSB0b3RhbFtuZXh0LmR0X3R4dC5zcGxpdCgnICcpWzBdXSB8fCBbXTtcblx0XHRcdHRvdGFsW25leHQuZHRfdHh0LnNwbGl0KCcgJylbMF1dLnB1c2gobmV4dCk7XG5cdFx0XHRyZXR1cm4gdG90YWw7XG5cdFx0fSwge30pXG5cdFx0Y29uc29sZS5sb2coc29ydGVkRGF0YSk7XG5cdFx0Zm9yIChjb25zdCBkYXkgaW4gc29ydGVkRGF0YSkge1xuXHRcdFx0c29ydGVkRGF0YVtkYXldLnNvcnQoKGEsIGIpID0+IChhLm1haW4udGVtcCAtIGIubWFpbi50ZW1wKSlcblx0XHR9XG5cblxuXHRcdGNvbnNvbGUubG9nKHNvcnRlZERhdGEpO1xuXG5cdH0gY2F0Y2ggKGVycm9yKSB7XG5cdFx0Y29uc29sZS5sb2coZXJyb3IpO1xuXHR9XG59Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/index.js\n");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval-source-map devtool is used.
+/******/ 	var __webpack_exports__ = {};
+/******/ 	__webpack_modules__["./src/index.js"]();
+/******/ 	
+/******/ })()
+;
