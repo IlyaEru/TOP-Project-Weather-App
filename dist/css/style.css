@@ -190,6 +190,36 @@ main {
       grid-template-columns: 1fr 1fr;
 }
 
+main .forecast-weather {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template: 1fr 1fr 1fr/ 1fr 1fr;
+}
+
+main .forecast-weather .forecast-day {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main .forecast-weather .forecast-day .forecast-day-img {
+  height: 3rem;
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
+
 main .current-weather {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -215,6 +245,7 @@ main .current-weather .current-result__param-img {
 }
 
 main .current-weather .current-result {
+  width: clamp(45ch, 50%, 75ch);
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 1fr 1fr 1fr 1fr;
@@ -248,15 +279,24 @@ main .current-weather .current-result .current-result__city-name {
       align-self: center;
   -ms-grid-row: 1;
   grid-row: 1;
+  align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
 }
 
 main .current-weather .current-result .current-result__weather-description {
-  -ms-grid-column-align: center;
-      justify-self: center;
+  justify-self: center;
   -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
       align-self: center;
-  font-size: 3rem;
+  font-size: 2rem;
+  height: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 main .current-weather .current-result .current-result__temp {
@@ -264,6 +304,11 @@ main .current-weather .current-result .current-result__temp {
   font-weight: 600;
   -ms-grid-row: 2;
   grid-row: 2;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
 }
 
 main .current-weather .current-result .current-result__temp .unit {

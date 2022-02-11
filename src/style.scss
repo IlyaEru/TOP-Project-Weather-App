@@ -160,7 +160,20 @@ body {
 main {
   display: grid;
   grid-template-columns: 1fr 1fr;
-
+  .forecast-weather {
+    display: grid;
+    grid-template: 1fr 1fr 1fr/ 1fr 1fr;
+    .forecast-day {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      .forecast-day-img {
+        height: 3rem;
+        filter: invert(1);
+      }
+    }
+  }
   .current-weather {
     display: flex;
     flex-direction: column;
@@ -174,6 +187,7 @@ main {
       height: 3rem;
     }
     .current-result {
+      width: clamp(45ch, 50%, 75ch);
       display: grid;
       grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr;
       gap: 1rem 0;
@@ -191,16 +205,24 @@ main {
         font-size: 2rem;
         align-self: center;
         grid-row: 1;
+        align-self: center;
+        justify-self: center;
       }
       .current-result__weather-description {
         justify-self: center;
         align-self: center;
-        font-size: 3rem;
+        font-size: 2rem;
+        height: 4rem;
+        display: flex;
+        text-align: center;
+        align-items: center;
       }
       .current-result__temp {
         font-size: 2rem;
         font-weight: 600;
         grid-row: 2;
+        align-self: center;
+        justify-self: center;
         .unit {
           font-size: inherit;
         }
