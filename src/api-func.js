@@ -1,4 +1,8 @@
-import { renderCurrenyWeather, renderFutureWeather, changeUnit } from "./dom-manip";
+import {
+    renderCurrenyWeather,
+    renderFutureWeather,
+    changeUnit,
+} from "./dom-manip";
 async function changeWeather(initCity = '') {
     const inputCityName = initCity || document.querySelector('.city-name').value;
     if (inputCityName == '') { return }
@@ -107,7 +111,6 @@ const apiData = (function apiData() {
     }
 
 
-
     function getCityName() {
 
         return weatherApiData.city.name + ', ' + weatherApiData.city.country;
@@ -163,4 +166,18 @@ async function getApiData(cityName) {
         console.log(error);
     }
 }
-export { apiData, changeWeather };
+
+// async function getCityList() {
+//     const cityUrl = 'https://raw.githubusercontent.com/lutangar/cities.json/master/cities.json'
+//     const request = await fetch(cityUrl);
+//     const data = await request.json()
+//     const countries = [];
+//     data.forEach(cityData => {
+//         countries.push(cityData.name);
+//     });
+//     pushCities(countries);
+// }
+export {
+    apiData,
+    changeWeather,
+}

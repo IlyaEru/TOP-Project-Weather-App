@@ -342,6 +342,8 @@ main .current-weather .current-result .current-result__weather-img {
       align-self: center;
   -ms-grid-column-align: center;
       justify-self: center;
+  position: relative;
+  z-index: -1;
 }
 
 main .current-weather .current-result .current-result__weather-img .weather-img {

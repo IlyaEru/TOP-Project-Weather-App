@@ -253,6 +253,8 @@ main {
         grid-column: 2 /-1;
         align-self: center;
         justify-self: center;
+        position: relative;
+        z-index: -1;
         .weather-img {
           height: 3.5rem;
           filter: invert(1);
@@ -324,6 +326,21 @@ main {
       position: relative;
       display: flex;
       justify-content: flex-end;
+      // .auto-city {
+      //   position: absolute;
+      //   width: 100%;
+      //   top: 100%;
+      //   max-height: 8rem;
+      //   overflow-y: scroll;
+      //   li {
+      //     list-style: none;
+      //     padding: 4px;
+      //     font-size: 1.4rem;
+      //     background: #282828eb;
+      //     border: solid rgba(255, 255, 255, 0.575);
+      //     border-width: 0.5px 1px;
+      //   }
+      // }
       input {
         background: transparent;
         color: white;

@@ -129,4 +129,20 @@ function changeUnit() {
         })
     }
 }
-export { renderCurrenyWeather, renderFutureWeather, changeUnit }
+/* 
+function pushCities(cities) {
+    const cityInputNode = document.querySelector('.city-input');
+    const autoSuggestionNode = document.createElement('div');
+    autoSuggestionNode.classList.add('auto-city');
+    cities.forEach((city) => {
+        const cityNode = document.createElement('li');
+        cityNode.textContent = city;
+        autoSuggestionNode.appendChild(cityNode);
+    })
+    cityInputNode.appendChild(autoSuggestionNode);
+}*/
+export {
+    renderCurrenyWeather,
+    renderFutureWeather,
+    changeUnit,
+}
