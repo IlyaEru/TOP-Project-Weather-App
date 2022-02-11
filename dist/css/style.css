@@ -155,8 +155,8 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 5rem;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.3))), url(../img/background.jpg);
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), url(../img/background.jpg);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../img/background.jpg);
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(../img/background.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -186,16 +186,68 @@ body {
 main {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+}
+
+@media only screen and (orientation: Portrait) {
+  main {
+    -ms-grid-rows: auto 1fr;
+        grid-template-rows: auto 1fr;
+    gap: 2rem;
+  }
+}
+
+main .change-unit {
+  position: fixed;
+  left: calc(100vw - 5rem);
+  padding: 0.5rem;
+}
+
+@media screen and (min-width: 460px) {
+  main .change-unit {
+    right: 10%;
+    left: auto;
+  }
+}
+
+main .change-unit .unit-name-div {
+  visibility: hidden;
+}
+
+main .change-unit .unit-div:hover ~ div {
+  visibility: initial;
+}
+
+main .change-unit .unit-symbol,
+main .change-unit .unit-name {
+  cursor: pointer;
+}
+
+main .change-unit .unit-symbol {
+  font-size: 2rem;
+  font-weight: 500;
 }
 
 main .forecast-weather {
+  width: 80%;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-grid-row: 2;
+  grid-row: 2;
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 1fr 1fr 1fr;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template: 1fr 1fr 1fr/ 1fr 1fr;
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+}
+
+@media only screen and (orientation: Portrait) {
+  main .forecast-weather {
+    -ms-grid-rows: (1fr)[6];
+    -ms-grid-columns: 1fr;
+        grid-template: repeat(6, 1fr)/1fr;
+    gap: 2rem;
+  }
 }
 
 main .forecast-weather .forecast-day {
@@ -214,10 +266,25 @@ main .forecast-weather .forecast-day {
           justify-content: center;
 }
 
+main .forecast-weather .forecast-day .day-name {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+main .forecast-weather .forecast-day .max-temp {
+  font-size: 1.6rem;
+}
+
 main .forecast-weather .forecast-day .forecast-day-img {
   height: 3rem;
   -webkit-filter: invert(1);
           filter: invert(1);
+}
+
+main .forecast-weather .forecast-day .weather-forecast-description {
+  font-size: 1.5rem;
+  height: 3rem;
+  text-align: center;
 }
 
 main .current-weather {
@@ -231,7 +298,17 @@ main .current-weather {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 1rem;
+}
+
+main .current-weather .error-block {
+  margin-top: 0.5rem;
+  height: 2rem;
+  font-size: 1.2rem;
+  color: crimson;
+}
+
+main .current-weather .hidden {
+  visibility: hidden;
 }
 
 main .current-weather .unit {
@@ -255,6 +332,7 @@ main .current-weather .current-result {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  justify-items: center;
 }
 
 main .current-weather .current-result .current-result__weather-img {
@@ -358,6 +436,7 @@ main .current-weather .current-result .current-result__humidity {
       -ms-flex-align: center;
           align-items: center;
   font-size: 0.9rem;
+  width: 9.2rem;
 }
 
 main .current-weather .current-result .current-result__humidity .humidity-value {
@@ -369,6 +448,7 @@ main .current-weather .current-result .current-result__humidity .percentage {
 }
 
 main .current-weather .current-result .current-result__wind-speed {
+  width: 10rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -377,6 +457,10 @@ main .current-weather .current-result .current-result__wind-speed {
       -ms-flex-align: center;
           align-items: center;
   font-size: 0.9rem;
+}
+
+main .current-weather .current-result .current-result__wind-speed span.wind-speed-value {
+  margin-right: 0.5rem;
 }
 
 main .current-weather .current-result .current-result__wind-speed .wind-speed-value {

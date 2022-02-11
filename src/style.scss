@@ -129,8 +129,8 @@ body {
   padding: 5rem;
   background-image: linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0.3) 0%,
-      rgba(0, 0, 0, 0.3) 100%
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.5) 100%
     ),
     url(../img/background.jpg);
   background-size: cover;
@@ -159,18 +159,66 @@ body {
 }
 main {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  @media only screen and (orientation: Portrait) {
+    grid-template-rows: auto 1fr;
+    gap: 2rem;
+  }
+  .change-unit {
+    position: fixed;
+    left: calc(100vw - 5rem);
+    padding: 0.5rem;
+    @media screen and (min-width: 460px) {
+      right: 10%;
+      left: auto;
+    }
+    .unit-name-div {
+      visibility: hidden;
+    }
+    .unit-div:hover {
+      & ~ div {
+        visibility: initial;
+      }
+    }
+    .unit-symbol,
+    .unit-name {
+      cursor: pointer;
+    }
+    .unit-symbol {
+      font-size: 2rem;
+      font-weight: 500;
+    }
+  }
   .forecast-weather {
+    width: 80%;
+    justify-self: center;
+    grid-row: 2;
     display: grid;
-    grid-template: 1fr 1fr 1fr/ 1fr 1fr;
+    grid-template-columns: repeat(6, 1fr);
+    @media only screen and (orientation: Portrait) {
+      grid-template: repeat(6, 1fr) / 1fr;
+      gap: 2rem;
+    }
     .forecast-day {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      .day-name {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      .max-temp {
+        font-size: 1.6rem;
+      }
       .forecast-day-img {
         height: 3rem;
         filter: invert(1);
+      }
+      .weather-forecast-description {
+        font-size: 1.5rem;
+        height: 3rem;
+        text-align: center;
       }
     }
   }
@@ -178,7 +226,15 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    .error-block {
+      margin-top: 0.5rem;
+      height: 2rem;
+      font-size: 1.2rem;
+      color: crimson;
+    }
+    .hidden {
+      visibility: hidden;
+    }
     .unit {
       font-size: 1.6rem;
     }
@@ -192,6 +248,7 @@ main {
       grid-template: 1fr 1fr 1fr 1fr / 1fr 1fr;
       gap: 1rem 0;
       align-items: center;
+      justify-items: center;
       .current-result__weather-img {
         grid-column: 2 /-1;
         align-self: center;
@@ -244,6 +301,7 @@ main {
       }
       .current-result__humidity {
         @include current-result-param-with-img();
+        width: 9.2rem;
         .humidity-value {
           font-size: 1.6rem;
         }
@@ -252,7 +310,11 @@ main {
         }
       }
       .current-result__wind-speed {
+        width: 10rem;
         @include current-result-param-with-img();
+        span.wind-speed-value {
+          margin-right: 0.5rem;
+        }
         .wind-speed-value {
           font-size: 1.6rem;
         }
