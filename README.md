@@ -2,7 +2,7 @@
 
 ## <a href="https://ilyaeru.github.io/TOP-Project-Weather-App/">live Preview</a><br>
 
-I have also wanted to include city auto suggestion, but there is a big amount of <a href="https://raw.githubusercontent.com/lutangar/cities.json/master/cities.json">cities</a>, it reduces the performance.
+I have also wanted to include city auto suggestion, but there are a lot of <a href="https://raw.githubusercontent.com/lutangar/cities.json/master/cities.json">cities</a>, it reduces the performance.
 
 <a href="https://pixabay.com/images/id-6785763/">background image by Kanenori</a>
 
